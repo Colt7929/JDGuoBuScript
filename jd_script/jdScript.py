@@ -13,7 +13,7 @@ with open('jd_cookies.json', 'r', encoding='utf-8') as f:
 
 page.set.cookies(cookies_list)
 page.ele('css:.activity-banner').click()
-time.sleep(2)
+time.sleep(1)
 listen = page.listen.start('https://api.m.jd.com/api?fid=bindingQualification')
 while True:
     try:
@@ -32,6 +32,7 @@ while True:
                     exit() 
                 elif success is False:
                     print(f"{message}")
+                    exit()
     except Exception as e:
         print(f"操作出错：{e}，停止循环")
         break
