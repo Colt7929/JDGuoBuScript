@@ -18,5 +18,6 @@ python jd_cli.py run
 python jd_cli.py run 09:00:00
 ```
 ## 注意事项
+- 需要下载dp_configs.ini到同级目录
 - 首次使用需要手动登录保存Cookie
 - 建议提前几分钟运行脚本
