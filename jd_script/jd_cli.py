@@ -126,12 +126,10 @@ class JDCli:
         
         listener = self.page.listen.start(api_url)
         
-        while True:
-            if self.perform_click_sequence():
-                for packet in self.page.listen.steps(count=1):
-                    if self.check_response(packet):
-                        return
-            time.sleep(0.05)
+        if self.perform_click_sequence():
+            for packet in self.page.listen.steps(count=1):
+                if self.check_response(packet):
+                    return
     
     def run_script_with_time(self, product_url, api_url, target_hour, target_minute, target_second):        
         cookies = self.load_cookies()
@@ -142,12 +140,10 @@ class JDCli:
         
         listener = self.page.listen.start(api_url)
         
-        while True:
-            if self.perform_click_sequence_with_time(target_hour, target_minute, target_second):
-                for packet in self.page.listen.steps(count=1):
-                    if self.check_response(packet):
-                        return
-            time.sleep(0.05)
+        if self.perform_click_sequence_with_time(target_hour, target_minute, target_second):
+            for packet in self.page.listen.steps(count=1):
+                if self.check_response(packet):
+                    return
     
     def close(self):
         if self.browser:
